@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
-@RestController
 public class Controller {
 
 	public static void main(String[] args) {
