@@ -37,12 +37,12 @@ public class AppController  {
   }
 
   @RequestMapping("/trace")
-  public static Tracer trace() {
+  public static Tracer trace() throws InterruptedException {
 
     try (Scope ignored = tracer.spanBuilder("TraceSpan").setSampler(Samplers.alwaysSample()).startScopedSpan()) {
       tracer.getCurrentSpan().addAnnotation("Thread Sleep 1000ms Created");
 
- 
+        Thread.sleep(2000);
 
       } catch (Exception e) {
         throw new RuntimeException(e);
