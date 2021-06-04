@@ -1,4 +1,4 @@
-package com.app.apm;
+package com.app.cloudacademy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
