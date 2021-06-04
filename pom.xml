@@ -9,12 +9,12 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.app</groupId>
-	<artifactId>my-app</artifactId>
+	<artifactId>apm-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>my-app</name>
+	<name>apm-app</name>
 	<description></description>
 	<properties>
-		<java.version>8</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
