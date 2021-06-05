@@ -36,41 +36,25 @@ public class AppController  {
     }
   }
 
-  @RequestMapping("/trace")
-  public static Tracer trace() throws InterruptedException {
+  @RequestMapping("/start")
+  public static String start() throws InterruptedException {
 
     try (Scope ignored = tracer.spanBuilder("TraceSpan").setSampler(Samplers.alwaysSample()).startScopedSpan()) {
       tracer.getCurrentSpan().addAnnotation("Thread Sleep 1000ms Created");
 
         Thread.sleep(2000);
 
+        BigInteger fact = BigInteger.valueOf(1);
+      for (int i = 1; i <= 10; i++) {
+        fact = fact.multiply(BigInteger.valueOf(i));
+      }
+
       } catch (Exception e) {
         throw new RuntimeException(e);
       }
 
-      return tracer;
+      return "API Triggered";
     }
-
-
-  @RequestMapping("/profile")
-  public String profile() {
-
-    try  {
-
-      BigInteger fact = BigInteger.valueOf(1);
-      for (int i = 1; i <= 10; i++) {
-        fact = fact.multiply(BigInteger.valueOf(i));
-      }
-        
-    } catch (RuntimeException e) {
-
-     
-      System.err.println("Something went wrong");
-    
-
-    } 
-    return "Profiler API Triggered";
-  }
 
   @RequestMapping("/shut")
   public String close() {
