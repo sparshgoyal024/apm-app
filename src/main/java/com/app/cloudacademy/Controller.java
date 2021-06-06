@@ -12,6 +12,4 @@ public class Controller {
 		SpringApplication.run(Controller.class, args);
 	}
 
-	
-
 }
