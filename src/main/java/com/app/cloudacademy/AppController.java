@@ -25,24 +25,15 @@ public class AppController  {
 
   private static final Tracer tracer = Tracing.getTracer();
 
-  static {
-    try {
-      System.out.println("Trace Exporter Registered");
-      StackdriverTraceExporter.createAndRegister(
-        StackdriverTraceConfiguration.builder()
-        .build());
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-  }
+/*  Add the Trace Exporter Code here */
 
   @RequestMapping("/start")
   public static String start() throws InterruptedException {
 
-    try (Scope ignored = tracer.spanBuilder("TraceSpan").setSampler(Samplers.alwaysSample()).startScopedSpan()) {
+    try ( /* Add the Begin Trace Scope here */ ) {
       tracer.getCurrentSpan().addAnnotation("Thread Sleep 1000ms Created");
 
-        Thread.sleep(2000);
+        /* Add the Sleep Timer here */
 
         BigInteger fact = BigInteger.valueOf(1);
       for (int i = 1; i <= 10; i++) {
