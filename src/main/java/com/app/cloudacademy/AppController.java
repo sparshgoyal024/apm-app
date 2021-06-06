@@ -30,7 +30,7 @@ public class AppController  {
   @RequestMapping("/start")
   public static String start() throws InterruptedException {
 
-    try ( /* Add the Begin Trace Scope here */ ) {
+    try ( /* Add the Begin Trace Scope here. Do not remove brackets */ ) {
       tracer.getCurrentSpan().addAnnotation("Thread Sleep 1000ms Created");
 
         /* Add the Sleep Timer here */
